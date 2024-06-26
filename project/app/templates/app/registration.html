@@ -1,0 +1,55 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block main-content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-sm-6 offset-sm-3">
+                <h3>Customer Registration</h3>
+                <hr>
+                <form action="{% url 'registerpage' %}" method="post" novalidate class="shadow p-5">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="inputEmail4"  class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="inputEmail4">
+                    </div>
+       
+                    <div class="mb-3">
+                        <label for="inputEmail4" class="form-label">Contact</label>
+                        <input type="tel"  name="contact" class="form-control" id="inputEmail4">
+                    </div>
+       
+                    <div class="mb-3">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" name="email"  class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword1" class="form-label">Password</label>
+                        <input type="password"  name="password" class="form-control" id="inputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword2"  class="form-label">Confirm Password</label>
+                        <input type="password" name="cpassword" class="form-control" id="inputPassword2">
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                    <br>
+                    <div class="text-center text-primary fw-bold"><small>Existing User ? <a href="{% url 'login' %}"
+                        class="text-danger">Login Now</a> </small></div>
+           
+                </form>
+          
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock main-content %}
